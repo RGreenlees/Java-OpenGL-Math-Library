@@ -6,10 +6,8 @@
  */
 package com.joml.utils;
 
-import static com.joml.utils.SurfaceMath.tangent;
 import com.joml.vector.Vector2f;
 import com.joml.vector.Vector3f;
-import sun.security.provider.certpath.Vertex;
 
 /**
  * Surface Math
