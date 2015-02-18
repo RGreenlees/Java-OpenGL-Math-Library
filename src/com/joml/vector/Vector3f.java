@@ -22,9 +22,9 @@ public class Vector3f {
     public float x;
     public float y;
     public float z;
-    
-    public static Vector3f forward = new Vector3f(0,0,1);
-    public static Vector3f up = new Vector3f(0,1,0);
+
+    public static Vector3f forward = new Vector3f(0, 0, 1);
+    public static Vector3f up = new Vector3f(0, 1, 0);
 
     public Vector3f() {
 
@@ -97,66 +97,92 @@ public class Vector3f {
                 v1.z + v2.z);
     }
 
-    /** Multiply this Vector3f by another Vector3f */
+    /**
+     * Multiply this Vector3f by another Vector3f
+     */
     public void mul(Vector3f v) {
         x *= v.x;
         y *= v.y;
         z *= v.z;
     }
 
-    /** Multiply v1 by v2 and store the results into dest. v1 and v2 are not modified
-     <B>This is not alias safe so make sure dest is not the same as the left or right parameters or you WILL get incorrect results!</B> */
+    /**
+     * Multiply v1 by v2 and store the results into dest. v1 and v2 are not
+     * modified
+     * <B>This is not alias safe so make sure dest is not the same as the left
+     * or right parameters or you WILL get incorrect results!</B>
+     */
     public static void mulFast(Vector3f v1, Vector3f v2, Vector3f dest) {
         dest.x = v1.x * v2.x;
         dest.y = v1.y * v2.y;
         dest.z = v1.z * v2.z;
     }
-    
-    /** Multiply this Vector3f by the given rotation matrix mat */
+
+    /**
+     * Multiply this Vector3f by the given rotation matrix mat
+     */
     public void mul(Matrix4f mat) {
         set(mat.m00 * x + mat.m10 * y + mat.m20 * z,
-            mat.m01 * x + mat.m11 * y + mat.m21 * z,
-            mat.m02 * x + mat.m12 * y + mat.m22 * z);
+                mat.m01 * x + mat.m11 * y + mat.m21 * z,
+                mat.m02 * x + mat.m12 * y + mat.m22 * z);
     }
-    
-    /** Multiply Vector3f v by the given rotation matrix mat and store the results in dest. Does not modify v */
+
+    /**
+     * Multiply Vector3f v by the given rotation matrix mat and store the
+     * results in dest. Does not modify v
+     */
     public static void mul(Vector3f v, Matrix4f mat, Vector3f dest) {
         dest.set(mat.m00 * v.x + mat.m10 * v.y + mat.m20 * v.z,
-                 mat.m01 * v.x + mat.m11 * v.y + mat.m21 * v.z,
-                 mat.m02 * v.x + mat.m12 * v.y + mat.m22 * v.z);
+                mat.m01 * v.x + mat.m11 * v.y + mat.m21 * v.z,
+                mat.m02 * v.x + mat.m12 * v.y + mat.m22 * v.z);
     }
-    
-    /** Multiply Vector3f v by the given rotation matrix mat and store the results in dest. Does not modify v
-        <B>This is not alias safe so make sure dest is not the same as the left or right parameters or you WILL get incorrect results!</B> */
+
+    /**
+     * Multiply Vector3f v by the given rotation matrix mat and store the
+     * results in dest. Does not modify v
+     * <B>This is not alias safe so make sure dest is not the same as the left
+     * or right parameters or you WILL get incorrect results!</B>
+     */
     public static void mulFast(Vector3f v, Matrix4f mat, Vector3f dest) {
         dest.x = mat.m00 * v.x + mat.m10 * v.y + mat.m20 * v.z;
         dest.y = mat.m01 * v.x + mat.m11 * v.y + mat.m21 * v.z;
         dest.z = mat.m02 * v.x + mat.m12 * v.y + mat.m22 * v.z;
     }
-    
-    /** Multiply this Vector3f by the given rotation matrix mat */
+
+    /**
+     * Multiply this Vector3f by the given rotation matrix mat
+     */
     public void mul(Matrix3f mat) {
         set(mat.m00 * x + mat.m10 * y + mat.m20 * z,
-            mat.m01 * x + mat.m11 * y + mat.m21 * z,
-            mat.m02 * x + mat.m12 * y + mat.m22 * z);
+                mat.m01 * x + mat.m11 * y + mat.m21 * z,
+                mat.m02 * x + mat.m12 * y + mat.m22 * z);
     }
-    
-    /** Multiply Vector3f v by the given rotation matrix mat and store the results in dest. Does not modify v */
+
+    /**
+     * Multiply Vector3f v by the given rotation matrix mat and store the
+     * results in dest. Does not modify v
+     */
     public static void mul(Vector3f v, Matrix3f mat, Vector3f dest) {
         dest.set(mat.m00 * v.x + mat.m10 * v.y + mat.m20 * v.z,
-                 mat.m01 * v.x + mat.m11 * v.y + mat.m21 * v.z,
-                 mat.m02 * v.x + mat.m12 * v.y + mat.m22 * v.z);
+                mat.m01 * v.x + mat.m11 * v.y + mat.m21 * v.z,
+                mat.m02 * v.x + mat.m12 * v.y + mat.m22 * v.z);
     }
-    
-    /** Multiply Vector3f v by the given rotation matrix mat and store the results in dest. Does not modify v
-    <B>This is not alias safe so make sure dest is not the same as the left or right parameters or you WILL get incorrect results!</B> */
+
+    /**
+     * Multiply Vector3f v by the given rotation matrix mat and store the
+     * results in dest. Does not modify v
+     * <B>This is not alias safe so make sure dest is not the same as the left
+     * or right parameters or you WILL get incorrect results!</B>
+     */
     public static void mulFast(Vector3f v, Matrix3f mat, Vector3f dest) {
         dest.x = mat.m00 * v.x + mat.m10 * v.y + mat.m20 * v.z;
         dest.y = mat.m01 * v.x + mat.m11 * v.y + mat.m21 * v.z;
         dest.z = mat.m02 * v.x + mat.m12 * v.y + mat.m22 * v.z;
     }
 
-    /** Multiply this Vector3f by the given scalar value */
+    /**
+     * Multiply this Vector3f by the given scalar value
+     */
     public void mul(float scalar) {
         x *= scalar;
         y *= scalar;
@@ -197,8 +223,6 @@ public class Vector3f {
     private static float length(Vector3f source) {
         return (float) Math.sqrt(lengthSquared(source));
     }
-    
-    
 
     /**
      * Normalizes this vector
@@ -248,6 +272,16 @@ public class Vector3f {
         return (float) Math.sqrt((end.x - start.x) * (end.x - start.x)
                 + (end.y - start.y) * (end.y - start.y)
                 + (end.z - start.z) * (end.z - start.z));
+    }
+    
+    /**
+     * Returns the distance between this Vector and v. Does not modify
+     * either
+     */
+    public float distance(Vector3f v) {
+        return (float) Math.sqrt((v.x - this.x) * (v.x - this.x)
+                + (v.y - this.y) * (v.y - this.y)
+                + (v.z - this.z) * (v.z - this.z));
     }
 
     /**
