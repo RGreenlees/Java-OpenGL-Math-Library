@@ -23,9 +23,9 @@ public class SurfaceMath {
      * stores it in dest. v1, v2 and v3 are not modified
      */
     public static void normal(Vector3f v1, Vector3f v2, Vector3f v3, Vector3f dest) {
-        dest.set(((v2.y - v1.y) * (v3.z - v1.z)) - ((v2.z - v1.z) * (v3.y - v1.y)),
-                ((v2.z - v1.z) * (v3.x - v1.x)) - ((v2.x - v1.x) * (v3.z - v1.z)),
-                ((v2.x - v1.x) * (v3.y - v1.y)) - ((v2.y - v1.y) * (v3.x - v1.x)));
+        dest.x = ((v2.y - v1.y) * (v3.z - v1.z)) - ((v2.z - v1.z) * (v3.y - v1.y));
+        dest.y = ((v2.z - v1.z) * (v3.x - v1.x)) - ((v2.x - v1.x) * (v3.z - v1.z));
+        dest.z = ((v2.x - v1.x) * (v3.y - v1.y)) - ((v2.y - v1.y) * (v3.x - v1.x));
     }
 
     /** Calculates the surface tangent for the three supplied vertices and UV coordinates and stores the result in dest
