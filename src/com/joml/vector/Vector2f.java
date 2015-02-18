@@ -108,5 +108,17 @@ public class Vector2f {
         x /= length;
         y /= length;
     }
+    
+    /** Adds v to this Vector2f */
+    public void add(Vector2f v) {
+        x += v.x;
+        y += v.y;
+    }
+    
+    /** Adds b to a and stores the results in dest */
+    public static void add(Vector2f a, Vector2f b, Vector2f dest) {
+        dest.x = a.x + b.x;
+        dest.y = a.y + b.y;
+    }
 
 }
