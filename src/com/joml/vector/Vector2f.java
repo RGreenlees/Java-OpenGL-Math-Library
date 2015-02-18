@@ -102,7 +102,7 @@ public class Vector2f {
         dest.y = a.y / length;
     }
     
-    /** Normalizes this Vector2f  */
+    /** Normalizes this Vector2f */
     public void normalize() {
         float length = (float) Math.sqrt((x * x) + (y * y));
         x /= length;
