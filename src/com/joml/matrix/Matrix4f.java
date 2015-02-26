@@ -616,20 +616,20 @@ public class Matrix4f {
     /** Stores this matrix in the supplied FloatBuffer */
     public void store(FloatBuffer buffer) {
         buffer.put(this.m00);
-        buffer.put(this.m01);
-        buffer.put(this.m02);
-        buffer.put(this.m03);
         buffer.put(this.m10);
-        buffer.put(this.m11);
-        buffer.put(this.m12);
-        buffer.put(this.m13);
         buffer.put(this.m20);
-        buffer.put(this.m21);
-        buffer.put(this.m22);
-        buffer.put(this.m23);
         buffer.put(this.m30);
+        buffer.put(this.m01);
+        buffer.put(this.m11);
+        buffer.put(this.m21);
         buffer.put(this.m31);
+        buffer.put(this.m02);
+        buffer.put(this.m12);
+        buffer.put(this.m22);
         buffer.put(this.m32);
+        buffer.put(this.m03);
+        buffer.put(this.m13);
+        buffer.put(this.m23);
         buffer.put(this.m33);
     }
 
